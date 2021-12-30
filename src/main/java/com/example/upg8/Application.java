@@ -93,10 +93,11 @@ public class Application extends javafx.application.Application {
         Node loginButton = dialog.getDialogPane().lookupButton(loginButtonType);
         loginButton.setDisable(true);
 
+       // TODO: Fix listener logic for checking providers in the email field
+
         email.textProperty().addListener((observable, oldValue, newValue) -> {
             loginButton.setDisable(newValue.trim().isEmpty());
             loginButton.setDisable(!newValue.contains("@"));
-            loginButton.setDisable(!newValue.trim().contains("Yahoo") );
         });
 
         dialog.getDialogPane().setContent(grid);
